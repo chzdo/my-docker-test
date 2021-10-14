@@ -18,8 +18,8 @@ mongo.connect().then((value) => console.log("connected 1")).catch((err) => conso
 
 //const client = new mongo()
 **/
-
-
+const users = [];
+/**
 mongoose.connect("mongodb://mongodbtest:27017/my-app", {
     auth: {
         username: "admin",
@@ -32,23 +32,31 @@ const users = mongoose.model("users", new mongoose.Schema({
     "id": Number,
     "name": String
 }))
-
+**/
 const server = express();
 
 server.get("/", async (r, re, nx) => {
 
-    const result = await users.find().catch((err) => console.log(err));
+   // const result = await users.find().catch((err) => console.log(err));
 
-    re.send(result);
+    re.send(users);
 })
 
 server.post("/", async (r, re, nx) => {
+    
+    /**
     const user = await users.insertMany([{
         id: 1,
         name: "stanley"
     }])
+    **/
+    
+    users.push({
+        id: 1,
+        name: "stanley"
+    })
 
-    re.send(user)
+    re.send(users)
 })
 
 server.listen(3000, () => console.log("running"))
