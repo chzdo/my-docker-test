@@ -1,8 +1,8 @@
 const express = require("express");
 
 
-var IBMCloudEnv = require('ibm-cloud-env');
-IBMCloudEnv.init("/path/to/the/mappings/file/relative/to/project/root");
+//var IBMCloudEnv = require('ibm-cloud-env');
+//IBMCloudEnv.init("/path/to/the/mappings/file/relative/to/project/root");
 //const mongoose = require("mongoose");
 //const { MongoClient } = require("mongodb");
 
