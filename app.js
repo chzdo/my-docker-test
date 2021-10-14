@@ -1,7 +1,10 @@
 const express = require("express");
 
-const mongoose = require("mongoose");
-const { MongoClient } = require("mongodb");
+
+var IBMCloudEnv = require('ibm-cloud-env');
+IBMCloudEnv.init("/path/to/the/mappings/file/relative/to/project/root");
+//const mongoose = require("mongoose");
+//const { MongoClient } = require("mongodb");
 
 /**
 const mongo = new MongoClient("mongodb://127.0.0.1:27019/my-app?authSource=admin", {
@@ -37,20 +40,20 @@ const server = express();
 
 server.get("/", async (r, re, nx) => {
 
-   // const result = await users.find().catch((err) => console.log(err));
+    // const result = await users.find().catch((err) => console.log(err));
 
     re.send(users);
 })
 
 server.post("/", async (r, re, nx) => {
-    
+
     /**
     const user = await users.insertMany([{
         id: 1,
         name: "stanley"
     }])
     **/
-    
+
     users.push({
         id: 1,
         name: "stanley"
