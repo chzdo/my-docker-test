@@ -1,0 +1,29 @@
+version: "3"
+services:
+  main-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: main-entry
+    ports:
+      - 8081:8080
+      - 50001:50000
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client:ro
+      - jenkins_home:/home
+
+  jenskins-docker:
+    image: docker:dind
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs
+    volumes:
+      - jenkins-docker-certs:/certs/client
+      - jenkins-data:/var/jenkins_hom
+volumes:
+  jenkins-docker-certs:
+    driver: local
+  jenkins-data:
+    driver: local
+  jenkins_home:
+    driver: local

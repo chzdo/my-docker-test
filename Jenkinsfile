@@ -1,19 +1,18 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
-    
-    stages {
-        stage("Example Build"){           
-            steps{
-                echo "Example building..."
-            }
+    agent {
+        docker {
+            image 'node:lts-buster-slim' 
+            args '-p 3000:3000' 
         }
-        stage("Example Test"){           
-            steps{
-                echo "Testing..."
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'npm install' 
             }
         }
     }
-}  
+}
   
