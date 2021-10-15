@@ -17,7 +17,7 @@ pipeline {
 
                 )
 
-                echo "${BRANCH}"
+                echo "${scm.branches[0].name}"
 
               }
              
