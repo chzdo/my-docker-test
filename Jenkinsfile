@@ -17,7 +17,7 @@ pipeline {
 
                 )
 
-                echo result
+                echo "${result}"
 
               }
              
