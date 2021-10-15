@@ -17,7 +17,7 @@ pipeline {
 
                 )
 
-                echo "${env}"
+                echo "${BRANCH}"
 
               }
              
