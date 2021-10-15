@@ -4,13 +4,21 @@ pipeline {
     agent {
         docker {
             image 'node:lts-buster-slim' 
-            args '-p 3000:3000' 
+            args '-p 8080:8080' 
         }
     }
     stages {
         stage('Build') { 
             steps {
-                sh 'npm install' 
+              script{
+                  result =   sh (
+                    script: "echo 1",
+
+                )
+
+                echo result
+
+              }
             }
         }
     }
