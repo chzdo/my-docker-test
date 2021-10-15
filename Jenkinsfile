@@ -9,7 +9,7 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            steps
+            steps{
               script{
                   result =   sh (
                     script: "echo 1",
