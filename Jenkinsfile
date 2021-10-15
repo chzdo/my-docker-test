@@ -20,7 +20,7 @@ pipeline {
                 echo "${scm.branches[0].name}"
                   if( result == 0){
                       currentBuild.result = "FAILURE"
-                      break
+                   
                   }
               }
              
