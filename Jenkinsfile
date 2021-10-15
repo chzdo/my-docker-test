@@ -24,6 +24,23 @@ pipeline {
 
             }
         }
+
+                stage('check') { 
+            steps{
+              script{
+                  result =   sh (
+                    script: "echo 1",
+                    returnStatus: true
+
+                )
+
+                echo "${env}"
+
+              }
+             
+
+            }
+        }
     }
 }
   
